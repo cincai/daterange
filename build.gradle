@@ -1,0 +1,17 @@
+apply plugin: 'scala'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.scala-lang:scala-library:2.10.2'
+    testCompile 'junit:junit:4.+'
+    testCompile 'org.mockito:mockito-core:1.9.5'
+    testCompile 'org.scalatest:scalatest_2.10:1.9.1'
+}
+
+scalaConsole.classpath += sourceSets.main.output
+scalaTestConsole.classpath += sourceSets.test.output
