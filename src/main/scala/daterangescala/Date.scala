@@ -1,4 +1,4 @@
-package wilson
+package daterangescala
 
 object Date {
   val thirtyDays = List(4, 6, 9, 11)

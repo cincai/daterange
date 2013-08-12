@@ -1,4 +1,4 @@
-package wilson
+package daterangescala
 
 import scala._
 

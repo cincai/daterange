@@ -1,4 +1,4 @@
-package wilson
+package daterangescala
 
 import org.junit.runner.RunWith
 import org.scalatest._

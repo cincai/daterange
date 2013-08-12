@@ -1,4 +1,4 @@
-(ns daterange)
+(ns daterangeclj)
 
 (defn is-leap [y] 
   (if (= (mod y 4) 0)
