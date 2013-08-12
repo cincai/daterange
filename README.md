@@ -14,3 +14,4 @@ Key features:
 - Written in Scala (2.10.2)
 - Uses ScalaTest and Mockito
 - Built with Gradle
+- Complete but untested implementation available in Clojure

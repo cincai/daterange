@@ -16,10 +16,10 @@ object Date {
 }
 
 case class Date(y: Int, m: Int, d: Int) {
-  require(y > 0, "Year must be greater than 1")
-  require(m > 0, "Month must be greater than 1")
+  require(y > 0, "Year must be greater than 0")
+  require(m > 0, "Month must be greater than 0")
   require(m <= 12, "Month must be less than or equal 12")
-  require(d > 0, "Day must be greater than 1")
+  require(d > 0, "Day must be greater than 0")
   require(d <= Date.daysInMonth(y, m), "Day is invalid")
 
   def rank: Int = {

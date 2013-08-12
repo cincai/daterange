@@ -11,6 +11,18 @@
       (if (is-leap y) 29 28)
       (if (contains? thirties m) 30 31))))
 
+(defn is-valid-date [y m d]
+  (when-not (> y 0)
+    (throw (IllegalArgumentException. "Year must be greater than 0")))
+  (when-not (> m 0)
+    (throw (IllegalArgumentException. "Month must be greater than 0")))
+  (when-not (<= m 12)
+    (throw (IllegalArgumentException. "Month must be less or equal 12")))
+  (when-not (> d 0)
+    (throw (IllegalArgumentException. "Day must be greater than 0")))
+  (when-not (<= d (days-in-month y m))
+    (throw (IllegalArgumentException. "Day is invalid"))))
+
 (defn leap-years-past [y]
   (let [years-past (- y 1)]
     (+ (quot years-past 4) (quot years-past -100) (quot years-past 400))))
@@ -22,6 +34,7 @@
   (reduce + d (map #(days-in-month y %) (range 1 m))))
 
 (defn rank [y m d]
+  (is-validate y m d)
   (+ (days-to-start-of-year y) (days-from-start-of-year y m d)))
 
 (defn days-between [start end]
@@ -30,6 +43,7 @@
     (- (rank y2 m2 d2) (rank y1 m1 d1))))
      
 (defn rank-by-month [y m d]
+  (is-validate y m d)
   (let [years-past (- y 1)
         full-months-past (+ (* 12 years-past) m -1)]
     (+ full-months-past (/ d (days-in-month y m)))))
